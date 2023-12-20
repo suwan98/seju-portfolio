@@ -4,7 +4,7 @@ import Link from "next/link";
 function Header() {
   return (
     <>
-      <header className="shadow-md min-w-full p-8 bg-[#212121] text-neutral-200 bg-blend-overlay font-intel">
+      <header className="shadow-md min-w-full p-8 bg-[#212121] text-neutral-200 bg-blend-overlay font-intel fixed top-0 z-10">
         <div className="flex justify-between w-full">
           <div className="flex items-center gap-x-2">
             <h1 className=" max-w-md:text-xl">Seju Portfolio</h1>

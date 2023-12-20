@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import "@/style/globals.css";
 import Header from "@/components/Header/Header";
+import SectionDots from "@/components/common/SectionDots";
 
 export const metadata: Metadata = {
   title: "Seju Portfolio",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ko">
-      <body className="">
+      <body className="relative">
         <Header />
         <main className="text-neutral-200">{children}</main>
       </body>

@@ -49,3 +49,16 @@
     }
   }
 }
+
+@layer components {
+  .imessage {
+    @apply bg-white border rounded flex flex-col max-w-[600px] mt-0 mb-4 mx-auto px-6 py-2 border-solid border-[#e5e5ea];
+  }
+  .imessage p {
+    @apply max-w-[75%] relative px-3.5 py-2 rounded-2xl;
+  }
+  .imessage p::before,
+  .imessage p::after {
+    @apply bottom-[-0.1rem] content-[""] h-4 absolute;
+  }
+}

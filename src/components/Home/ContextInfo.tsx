@@ -8,7 +8,7 @@ function ContactInfo() {
         href={text}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-neutral-500 underline decoration-gray-600
+        className="text-neutral-500 underline decoration-neutral-200
         underline-offset-[4px]">
         {text}
       </a>

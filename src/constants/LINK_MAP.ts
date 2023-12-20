@@ -5,7 +5,6 @@ interface ILinkMap {
 
 const LINK_MAP: ILinkMap[] = [
   {href: "/about", title: "about"},
-  {href: "/skills", title: "skills"},
   {href: "/project", title: "project"},
 ];
 
