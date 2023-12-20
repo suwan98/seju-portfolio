@@ -16,7 +16,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="ko">
       <body className="">
         <Header />
-        <main>{children}</main>
+        <main className="text-neutral-200">{children}</main>
       </body>
     </html>
   );

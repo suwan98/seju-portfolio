@@ -4,7 +4,7 @@ import Typed from "react-typed";
 
 function Introduce() {
   return (
-    <h1 className="text-3xl text-white flex flex-col gap-4 items-center">
+    <h1 className="text-3xl flex flex-col gap-4 items-center min-h-[12rem]">
       <Typed
         strings={[
           "새로운것을 학습하는것에 대해 가장 큰 즐거움을 느끼는",
@@ -15,7 +15,7 @@ function Introduce() {
         backSpeed={50}
         loop
       />
-      <span>프론트엔드 개발자 고수완입니다. </span>
+      <span>프론트엔드 개발자</span>
     </h1>
   );
 }

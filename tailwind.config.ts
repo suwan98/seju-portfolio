@@ -19,6 +19,9 @@ const config: Config = {
         suitSemiBold: ["suitSemiBold"],
         intel: ["intel"],
       },
+      colors: {
+        highlight: "#FFA62B",
+      },
     },
   },
   plugins: [],
