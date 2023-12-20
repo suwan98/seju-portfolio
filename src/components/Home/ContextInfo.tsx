@@ -4,7 +4,12 @@ import React from "react";
 function ContactInfo() {
   const renderALinkOrSpan = (text: string) => {
     return text.includes("https" || "http") ? (
-      <a href={text} target="_blank" rel="noopener noreferrer">
+      <a
+        href={text}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-neutral-500 underline decoration-gray-600
+        underline-offset-[4px]">
         {text}
       </a>
     ) : (
@@ -13,10 +18,10 @@ function ContactInfo() {
   };
 
   return (
-    <div className="flex gap-4 items-center justify-center">
+    <div className="flex gap-6 items-center justify-center">
       <ul>
         {CONTACT_INFO_LIST.map(({icon, text}, i) => (
-          <li key={i} className="flex gap-4 items-center justify-start">
+          <li key={i} className="flex gap-4 items-center justify-start pb-2">
             <span>{icon}</span>
             {renderALinkOrSpan(text)}
           </li>
