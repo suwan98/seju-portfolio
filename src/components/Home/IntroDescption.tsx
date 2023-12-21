@@ -10,7 +10,7 @@ function IntroDescption() {
     <>
       <div className="text-neutral-900">
         <SectionTitle title="고수완" />
-        <div className="border rounded-2xl bg-white min-w-[50rem] min-h-[25rem] flex items-center justify-evenly">
+        <div className="border rounded-2xl bg-white min-w-[50rem] min-h-[25rem] flex items-center justify-evenly custom-shadow">
           <Profile />
           <div className="flex flex-col gap-2 items-start">
             <span className="font-suitSemiBold text-2xl">
@@ -19,15 +19,6 @@ function IntroDescption() {
             <ContactInfo />
           </div>
         </div>
-        {/* <div className="flex">
-          <motion.img
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            src="/assets/image/navigation.png"
-            className="absolute cursor-pointer order-2"
-          />
-          {isHover && <Popover />}
-        </div> */}
       </div>
     </>
   );

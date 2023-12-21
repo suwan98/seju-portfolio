@@ -26,7 +26,7 @@ function ArrowToBottom() {
         variants={arrowVariants}
         initial="hidden"
         animate="show"
-        className="absolute bottom-[10%] flex items-center flex-col cursor-pointer">
+        className="absolute bottom-[8%] flex items-center flex-col cursor-pointer">
         <FaArrowDown size="2rem" />
         <span className="pt-2">스크롤을 이동해주세요!</span>
       </motion.div>
