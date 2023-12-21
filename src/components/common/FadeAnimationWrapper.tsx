@@ -1,6 +1,5 @@
 import FADE_VARIANTS from "@/constants/FADE_VARIANTS";
 import {motion} from "framer-motion";
-import {ComponentPropsWithoutRef} from "react";
 interface Props {
   children: React.ReactNode;
   className?: string;

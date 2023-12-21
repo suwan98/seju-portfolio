@@ -13,10 +13,7 @@ function IntroDescption() {
       <div className="text-neutral-900">
         <SectionTitle title="고수완" />
         <FadeAnimationWrapper>
-          <CardWrapper
-            width="min-w-[50rem]"
-            height="min-h-[25rem]"
-            justify="justify-evenly">
+          <CardWrapper justify="justify-evenly">
             <Profile />
             <div className="flex flex-col gap-2 items-start">
               <span className="font-suitSemiBold text-2xl">

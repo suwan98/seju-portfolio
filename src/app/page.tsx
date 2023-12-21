@@ -25,7 +25,7 @@ export default function Home() {
     <>
       <section
         ref={homeRef}
-        className="flex-col flex items-center justify-center h-screen relative">
+        className="flex-col flex items-center justify-center min-h-screen relative">
         <Stars />
         <Introduce />
         <IntroDescption />
@@ -33,7 +33,7 @@ export default function Home() {
       </section>
       <section
         ref={aboutRef}
-        className="flex-col flex items-center justify-center h-screen relative">
+        className="flex-col flex items-center justify-center min-h-screen relative">
         <About />
       </section>
       <section

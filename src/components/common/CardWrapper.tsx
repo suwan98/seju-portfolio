@@ -1,15 +1,11 @@
 interface Props {
   children: React.ReactNode;
-  width?: string;
-  height?: string;
   justify?: string;
   className?: string;
 }
 
 function CardWrapper({
   children,
-  width,
-  height,
   justify = `justify-center`,
   className = "",
   ...props
@@ -18,7 +14,7 @@ function CardWrapper({
     <>
       <div
         className={`
-      border relative rounded-2xl bg-neutral-100 ${width} ${height} flex items-center ${justify} ${className}
+      border relative rounded-2xl bg-neutral-100 min-w-[50vw] min-h-[25vh] flex items-center py-12 ${justify} ${className}
       `}
         {...props}>
         {children}

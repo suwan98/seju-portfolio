@@ -8,10 +8,7 @@ interface Props {
 
 function SpeechBubble({children, className}: Props) {
   return (
-    <CardWrapper
-      width="min-w-[50rem]"
-      height="min-h-[50rem]"
-      className={className}>
+    <CardWrapper className={className}>
       <div className="bubble-arrow"></div>
       {children}
     </CardWrapper>
