@@ -13,6 +13,9 @@ function SectionScrollTopButton() {
         delay: 0.3,
       },
     },
+    exit: {
+      opacity: 0,
+    },
   };
 
   const handleScrollTop = () => {
@@ -29,6 +32,7 @@ function SectionScrollTopButton() {
         variants={scrollButtonVariants}
         initial="begin"
         animate="finish"
+        exit="exit"
         onClick={handleScrollTop}>
         <IoIosArrowUp size="3rem" />
       </motion.button>

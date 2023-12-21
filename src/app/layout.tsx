@@ -1,7 +1,6 @@
 import type {Metadata} from "next";
 import "@/style/globals.css";
 import Header from "@/components/Header/Header";
-import SectionDots from "@/components/common/SectionDots";
 
 export const metadata: Metadata = {
   title: "Seju Portfolio",

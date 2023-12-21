@@ -9,6 +9,7 @@ import SectionDots from "@/components/common/SectionDots";
 import SectionScrollTopButton from "@/components/common/SectionScrollTopButton";
 import Stars from "@/components/common/Star/Stars";
 import useScrollStatus from "@/lib/hooks/useScrollStatus";
+import {AnimatePresence} from "framer-motion";
 import {useRef} from "react";
 
 export default function Home() {
@@ -19,7 +20,6 @@ export default function Home() {
 
   /* scroll 상태에 따른 조건부렌더링 */
   const scrollStatus = useScrollStatus();
-  console.log(scrollStatus);
 
   return (
     <>
@@ -42,7 +42,9 @@ export default function Home() {
         <Project />
       </section>
       <SectionDots refs={[homeRef, aboutRef, proejectRef]} />
-      {scrollStatus && <SectionScrollTopButton />}
+      <AnimatePresence>
+        {scrollStatus && <SectionScrollTopButton />}
+      </AnimatePresence>
     </>
   );
 }
