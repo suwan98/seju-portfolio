@@ -3,10 +3,7 @@
 import SectionTitle from "../common/SectionTitle";
 import PERSONAL_INFORMATION from "@/constants/PERSONAL_INFORMATION";
 import ContactInfo from "./ContextInfo";
-import {motion} from "framer-motion";
-import {useState} from "react";
 import Profile from "./Profile";
-import Popover from "../common/Popover";
 
 function IntroDescption() {
   return (

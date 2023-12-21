@@ -61,4 +61,8 @@
   .imessage p::after {
     @apply bottom-[-0.1rem] content-[""] h-4 absolute;
   }
+
+  .highlight {
+    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=ffff43);
+  }
 }
