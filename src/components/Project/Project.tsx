@@ -1,7 +1,14 @@
+import CardWrapper from "../common/CardWrapper";
+import SectionTitle from "../common/SectionTitle";
+import ProjectCards from "./ProjectCards";
+
 function Project() {
   return (
     <>
-      <div className="">Project</div>
+      <div className="my-[6rem] pt-12">
+        <SectionTitle title="프로젝트" />
+        <ProjectCards />
+      </div>
     </>
   );
 }

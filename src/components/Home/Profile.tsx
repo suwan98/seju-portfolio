@@ -1,6 +1,6 @@
 "use client";
 
-import {Variants, motion} from "framer-motion";
+import {Variants, easeInOut, motion} from "framer-motion";
 
 function Profile() {
   const motionVariants: Variants = {
@@ -16,6 +16,7 @@ function Profile() {
       transition: {
         duration: 0.5,
         delay: 0.3,
+        ease: easeInOut,
       },
     },
   };

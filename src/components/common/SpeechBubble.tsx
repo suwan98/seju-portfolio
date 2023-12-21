@@ -1,18 +1,20 @@
 import React from "react";
+import CardWrapper from "./CardWrapper";
 
 interface Props {
   children: React.ReactNode;
-  style?: string;
+  className?: string;
 }
 
-function SpeechBubble({children, style}: Props) {
-  const defaultStyle =
-    "p-4 bg-neutral-50 rounded-lg shadow-md relative m-4 w-64";
+function SpeechBubble({children, className}: Props) {
   return (
-    <div className={`${defaultStyle}  ${style}`}>
+    <CardWrapper
+      width="min-w-[50rem]"
+      height="min-h-[50rem]"
+      className={className}>
       <div className="bubble-arrow"></div>
-      <p>{children}</p>
-    </div>
+      {children}
+    </CardWrapper>
   );
 }
 export default SpeechBubble;

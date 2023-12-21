@@ -18,7 +18,7 @@ function SectionDots({refs}: Props) {
   };
 
   return (
-    <ul className="flex flex-col gap-4 fixed right-0 bottom-1/2 mr-12 cursor-pointer">
+    <ul className="flex flex-col gap-4 fixed right-0 bottom-1/2 mr-12 cursor-pointer mobile:hidden">
       {dots.map((dot, index) => (
         <button
           onClick={handleMoveScrollInView(index)}
