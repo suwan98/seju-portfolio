@@ -29,16 +29,16 @@ export default function Home() {
         <Stars />
         <Introduce />
         <IntroDescption />
-        <ArrowToBottom />
+        <AnimatePresence>{!scrollStatus && <ArrowToBottom />}</AnimatePresence>
       </section>
       <section
         ref={aboutRef}
-        className="flex-col flex items-center justify-center h-screen">
+        className="flex-col flex items-center justify-center h-screen relative">
         <About />
       </section>
       <section
         ref={proejectRef}
-        className="flex-col flex items-center justify-center h-screen">
+        className="flex-col flex items-center justify-center h-screen relative">
         <Project />
       </section>
       <SectionDots refs={[homeRef, aboutRef, proejectRef]} />
