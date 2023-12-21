@@ -7,7 +7,7 @@ function SectionTitle({title}: Props) {
 
   return (
     <>
-      <div className="pb-4 text-3xl font-suitSemiBold text-highlight">
+      <div className="pb-8 text-4xl font-suitBold text-highlight">
         <span className="">{titleString}</span>
       </div>
     </>

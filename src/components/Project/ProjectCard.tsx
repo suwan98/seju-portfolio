@@ -1,4 +1,5 @@
 import CardWrapper from "../common/CardWrapper";
+import FadeAnimationWrapper from "../common/FadeAnimationWrapper";
 
 interface Props {
   children: React.ReactNode;
@@ -7,12 +8,14 @@ interface Props {
 function ProjectCard({children}: Props) {
   return (
     <>
-      <CardWrapper
-        className="p-12"
-        width="min-w-[65rem]"
-        height="min-h-[45rem]">
-        {children}
-      </CardWrapper>
+      <FadeAnimationWrapper>
+        <CardWrapper
+          className="p-12"
+          width="min-w-[65rem]"
+          height="min-h-[45rem]">
+          {children}
+        </CardWrapper>
+      </FadeAnimationWrapper>
     </>
   );
 }
