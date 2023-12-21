@@ -1,6 +1,7 @@
 "use client";
 
 import About from "@/components/About/About";
+import ArrowToBottom from "@/components/Home/ArrowToBottom";
 import IntroDescption from "@/components/Home/IntroDescption";
 import Introduce from "@/components/Home/Introduce";
 import Project from "@/components/Project/Project";
@@ -17,15 +18,20 @@ export default function Home() {
     <>
       <section
         ref={homeRef}
-        className="flex-col mobile:flex-row flex items-center justify-center h-screen pb-32">
+        className="flex-col flex items-center justify-center h-screen relative">
         <Stars />
         <Introduce />
         <IntroDescption />
+        <ArrowToBottom />
       </section>
-      <section ref={aboutRef}>
+      <section
+        ref={aboutRef}
+        className="flex-col flex items-center justify-center h-screen">
         <About />
       </section>
-      <section ref={proejectRef}>
+      <section
+        ref={proejectRef}
+        className="flex-col flex items-center justify-center h-screen">
         <Project />
       </section>
       <SectionDots refs={[homeRef, aboutRef, proejectRef]} />

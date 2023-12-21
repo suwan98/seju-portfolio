@@ -8,7 +8,7 @@ import Profile from "./Profile";
 function IntroDescption() {
   return (
     <>
-      <div className="py-12 text-neutral-900">
+      <div className="text-neutral-900">
         <SectionTitle title="고수완" />
         <div className="border rounded-2xl bg-white min-w-[50rem] min-h-[25rem] flex items-center justify-evenly">
           <Profile />

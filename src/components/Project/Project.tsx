@@ -1,7 +1,7 @@
 function Project() {
   return (
     <>
-      <div className="h-screen">Project</div>
+      <div className="">Project</div>
     </>
   );
 }

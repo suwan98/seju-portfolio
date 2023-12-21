@@ -10,6 +10,7 @@ interface Props {
 function SectionDots({refs}: Props) {
   const dots = Array(3).fill(null);
 
+  //todo : 사용자 스크롤에 따른 dots 색상변화 기능도 구성해야함
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const handleMoveScrollInView = (index: number) => () => {
     scrollToSection(refs[index]);
@@ -22,7 +23,7 @@ function SectionDots({refs}: Props) {
         <button
           onClick={handleMoveScrollInView(index)}
           key={index}
-          className={`w-6 h-6 rounded-full shadow-md hover:scale-110 ease-in-out delay-75 transition-transform ${
+          className={`w-5 h-5 rounded-full shadow-md hover:scale-110 ease-in-out delay-75 transition-transform ${
             activeIndex === index ? "bg-highlight" : "bg-neutral-500"
           }`}>
           {dot}
@@ -33,5 +34,3 @@ function SectionDots({refs}: Props) {
 }
 
 export default SectionDots;
-
-// background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);

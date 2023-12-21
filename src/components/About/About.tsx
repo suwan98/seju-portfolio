@@ -6,7 +6,7 @@ import {useRef} from "react";
 function About() {
   return (
     <>
-      <div className="h-screen">About</div>
+      <div className="">About</div>
     </>
   );
 }
