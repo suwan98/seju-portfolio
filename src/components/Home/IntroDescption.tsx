@@ -11,7 +11,7 @@ function IntroDescption() {
   return (
     <>
       <div className="text-neutral-900">
-        <SectionTitle title="고수완" />
+        <SectionTitle title="Who are you?" />
         <FadeAnimationWrapper>
           <CardWrapper justify="justify-evenly">
             <Profile />

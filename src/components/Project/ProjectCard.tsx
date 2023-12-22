@@ -10,9 +10,8 @@ function ProjectCard({children}: Props) {
     <>
       <FadeAnimationWrapper>
         <CardWrapper
-          className="p-12"
-          width="min-w-[65rem]"
-          height="min-h-[45rem]">
+          className="px-8"
+         >
           {children}
         </CardWrapper>
       </FadeAnimationWrapper>

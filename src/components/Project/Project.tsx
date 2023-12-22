@@ -1,4 +1,3 @@
-import CardWrapper from "../common/CardWrapper";
 import SectionTitle from "../common/SectionTitle";
 import ProjectCards from "./ProjectCards";
 
