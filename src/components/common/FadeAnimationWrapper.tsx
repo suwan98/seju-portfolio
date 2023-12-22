@@ -13,7 +13,6 @@ function FadeAnimationWrapper({children, className, ...rest}: Props) {
         initial="initial"
         whileInView="inView"
         animate="finish"
-        viewport={{once: true}}
         className={className}
         {...rest}>
         {children}

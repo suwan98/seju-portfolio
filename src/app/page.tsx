@@ -25,7 +25,7 @@ export default function Home() {
     <>
       <section
         ref={homeRef}
-        className="flex-col flex items-center justify-center min-h-screen relative">
+        className="flex-col flex items-center min-h-screen justify-center">
         <Stars />
         <Introduce />
         <IntroDescption />

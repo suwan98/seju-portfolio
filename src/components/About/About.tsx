@@ -1,7 +1,9 @@
 import Image from "next/image";
-import SpeechBubble from "../common/SpeechBubble";
 import SectionTitle from "../common/SectionTitle";
 import FadeAnimationWrapper from "../common/FadeAnimationWrapper";
+import CardWrapper from "../common/CardWrapper";
+import TeachStackList from "./TeachStackList";
+import AboutDescription from './AboutDescription';
 
 function About() {
   return (
@@ -16,10 +18,11 @@ function About() {
             alt=""
           />
         </div>
-        <FadeAnimationWrapper className="contents">
-          <SpeechBubble className="ml-12 mb-8 text-neutral-900">
-            안녕
-          </SpeechBubble>
+        <FadeAnimationWrapper>
+          <CardWrapper className="px-8 flex-col items-stretch">
+            <TeachStackList />
+            <AboutDescription />
+          </CardWrapper>
         </FadeAnimationWrapper>
       </div>
     </>
