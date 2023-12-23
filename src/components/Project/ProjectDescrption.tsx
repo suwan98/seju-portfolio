@@ -1,6 +1,8 @@
 import splitToDot from "@/lib/utils/splitToDot";
 import ProjectInfoSection from "./ProjectInfoSection";
 import ProjectInfoTitle from "./ProjectInfoTitle";
+import ProjectTechStackList from "./ProjectTechStackList";
+import ProjectInfoURL from "./ProjectInfoURL";
 
 interface Props {
   descrption: string;
@@ -22,7 +24,7 @@ function ProjectDescrption({
 
   return (
     <>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-10 font-suitSemiBold">
         <ProjectInfoSection
           emoji="🎉"
           descriptionText="주요기능"
@@ -33,8 +35,8 @@ function ProjectDescrption({
           descriptionText="새롭게 알게 된 점"
           descriptionItem={splitedDescription}
         />
-        <ProjectInfoTitle emoji="🪄" descriptionText="프로젝트 기술 스택" />
-        <ProjectInfoTitle emoji="🌏" descriptionText="프로젝트 URL" />
+        <ProjectTechStackList techStack={techStack} />
+        <ProjectInfoURL url={baseURL} />
       </div>
     </>
   );
