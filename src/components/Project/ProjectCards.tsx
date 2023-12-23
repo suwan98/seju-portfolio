@@ -2,6 +2,7 @@ import PROJECT_LIST from "@/constants/PROJECT_LIST";
 import ProjectCard from "./ProjectCard";
 import Image from "next/image";
 import ProjectDescrption from "./ProjectDescrption";
+import ProjectImageSwiper from "./ProjectImageSwiper";
 
 function ProjectCards() {
   return (
@@ -18,15 +19,11 @@ function ProjectCards() {
             techStack,
           }) => (
             <ProjectCard key={id}>
-              <Image
-                src={projectImageSource[0]}
-                alt=""
-                width="300"
-                height="300"
-              />
+              <ProjectImageSwiper source={projectImageSource} />
               <ProjectDescrption
                 descrption={descrption}
                 core={core}
+                techStack={techStack}
                 isTeamProject={isTeamProject}
                 baseURL={baseURL}
               />
