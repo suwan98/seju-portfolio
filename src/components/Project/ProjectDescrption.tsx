@@ -34,6 +34,7 @@ function ProjectDescrption({
           descriptionItem={splitedDescription}
         />
         <ProjectInfoTitle emoji="🪄" descriptionText="프로젝트 기술 스택" />
+        <ProjectInfoTitle emoji="🌏" descriptionText="프로젝트 URL" />
       </div>
     </>
   );

@@ -20,7 +20,8 @@ const config: Config = {
         intel: ["intel"],
       },
       colors: {
-        highlight: "#ffb752",
+        highlight: "#faac40",
+        buttonHighlight: "#ebeced",
       },
     },
   },

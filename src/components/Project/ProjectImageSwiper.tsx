@@ -49,7 +49,7 @@ function ProjectImageSwiper({source}: Props) {
   };
 
   return (
-    <div className="relative shadow-md min-w-[20rem] max-w-[25rem] h-auto flex justify-center items-center">
+    <div className="relative shadow-lg min-w-[20rem] max-w-[25rem] h-auto flex justify-center items-center ">
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
           className="object-cover w-full"
@@ -81,12 +81,12 @@ function ProjectImageSwiper({source}: Props) {
       </AnimatePresence>
       <div
         onClick={() => paginate(1)}
-        className="absolute top-1/2 left-0 z-10 cursor-pointer text-neutral-500 ">
+        className="absolute top-1/2 left-0 z-10 cursor-pointer text-neutral-500 hover:scale-125 delay-75 ease-in-out transition-transform ">
         <ArrowLeft />
       </div>
       <div
         onClick={() => paginate(-1)}
-        className="absolute top-1/2 right-0 z-10 cursor-pointer">
+        className="absolute top-1/2 right-0 z-10 cursor-pointer text-neutral-500 hover:scale-125 delay-75 ease-in-out transition-transform">
         <ArrowRight />
       </div>
     </div>
