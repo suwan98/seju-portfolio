@@ -8,13 +8,14 @@ interface Props {
   core: string;
   isTeamProject: boolean;
   techStack: string[];
-  baseURL: string;
+  baseURL: {
+    [key: string]: string;
+  };
 }
 
 function ProjectDescrption({
   descrption,
   core,
-  isTeamProject,
   techStack,
   baseURL,
 }: Props) {

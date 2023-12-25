@@ -2,8 +2,7 @@ import ProjectInfoTitle from "./ProjectInfoTitle";
 
 interface Props {
   url: {
-    gtihub: string;
-    demo: string;
+    [key: string]: string;
   };
 }
 
