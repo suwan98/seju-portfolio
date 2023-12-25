@@ -1,6 +1,5 @@
 import splitToDot from "@/lib/utils/splitToDot";
 import ProjectInfoSection from "./ProjectInfoSection";
-import ProjectInfoTitle from "./ProjectInfoTitle";
 import ProjectTechStackList from "./ProjectTechStackList";
 import ProjectInfoURL from "./ProjectInfoURL";
 

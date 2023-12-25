@@ -14,7 +14,7 @@ const PROJECT_LIST = [
       깃허브: "https://github.com/suwan98/seju-devlog",
       배포페이지: "www.seju.blog",
     },
-    techStack: ["TypeScript", "Next.js", "ContentLayer", "FramerMotion"],
+    techStack: ["TypeScript", "Nextjs", "ContentLayer", "FramerMotion"],
     isTeamProject: false,
   },
   {
@@ -63,7 +63,7 @@ const PROJECT_LIST = [
       깃허브: "https://github.com/suwan98/seju-portfolio",
       배포페이지: "none",
     },
-    techStack: ["TypeSciprt", "Nextjs", "Zustand", "AWS"],
+    techStack: ["TypeScript", "Nextjs", "Zustand", "AWS"],
     isTeamProject: false,
   },
 ];
