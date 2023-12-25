@@ -4,8 +4,12 @@ interface Props {
   techStack: string[];
 }
 
+interface teachStackMappedColorsValues {
+  [key: string]: string;
+}
+
 function ProjectTechStackList({techStack}: Props) {
-  const teachStackMappedColors = {
+  const teachStackMappedColors: teachStackMappedColorsValues = {
     JavaScript: "bg-[#F7DF1E]",
     TypeScript: "bg-[#3178C6]",
     React: "bg-[#61DAFB]",

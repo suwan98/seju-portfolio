@@ -32,11 +32,13 @@ export default function Home() {
         <AnimatePresence>{!scrollStatus && <ArrowToBottom />}</AnimatePresence>
       </section>
       <section
+        id="about"
         ref={aboutRef}
         className="flex-col flex items-center justify-center min-h-screen relative">
         <About />
       </section>
-      <section
+          <section
+              id='project'
         ref={proejectRef}
         className="flex-col flex items-center justify-center min-h-screen relative">
         <Project />

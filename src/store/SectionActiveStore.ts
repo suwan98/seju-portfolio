@@ -1,8 +1,13 @@
 import create from "zustand";
 
-const useStore = create((set) => ({
+interface storeState {
+  activeIndex: number | null;
+  setActiveIndex: (index: number | null) => void;
+}
+
+const useStore = create<storeState>((set) => ({
   activeIndex: null,
-  setActiveIndex: (index: number) => set(() => ({activeIndex: index})),
+  setActiveIndex: (index) => set({activeIndex: index}),
 }));
 
 export default useStore;

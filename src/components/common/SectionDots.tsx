@@ -1,7 +1,8 @@
 "use client";
 
 import scrollToSection from "@/lib/utils/scrollToSection";
-import {RefObject, useState} from "react";
+import useStore from "@/store/SectionActiveStore";
+import {RefObject, useEffect, useState} from "react";
 
 interface Props {
   refs: RefObject<HTMLElement>[];
@@ -9,13 +10,38 @@ interface Props {
 
 function SectionDots({refs}: Props) {
   const dots = Array(3).fill(null);
+  const {activeIndex, setActiveIndex} = useStore();
 
-  //todo : 사용자 스크롤에 따른 dots 색상변화 기능도 구성해야함
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const handleMoveScrollInView = (index: number) => () => {
     scrollToSection(refs[index]);
     setActiveIndex(index);
   };
+  /* 사용자 스크롤에 따른 dots 색상변화 기능*/
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition =
+        window.scrollY || document.documentElement.scrollTop;
+
+      refs.forEach((ref, index) => {
+        if (ref.current) {
+          const sectionTop = ref.current.offsetTop;
+          const sectionHeight = ref.current.offsetHeight;
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            setActiveIndex(index);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [refs]);
 
   return (
     <ul className="flex flex-col gap-4 fixed right-0 bottom-1/2 mr-12 cursor-pointer mobile:hidden">

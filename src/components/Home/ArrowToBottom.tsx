@@ -23,9 +23,18 @@ function ArrowToBottom() {
     },
   };
 
+  const handleMoveAboutSection = () => {
+    const aboutSection = document.getElementById("about");
+    window.scrollTo({
+      top: aboutSection?.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <motion.div
+        onClick={handleMoveAboutSection}
         variants={arrowVariants}
         initial="hidden"
         animate="show"
