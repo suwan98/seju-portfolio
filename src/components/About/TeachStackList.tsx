@@ -4,11 +4,11 @@ import PERSONAL_INFORMATION from "@/constants/PERSONAL_INFORMATION";
 function TeachStackList() {
   return (
     <div className="flex pb-12 flex-col gap-8">
-      <h1 className="text-4xl font-suitBold pr-6">
+      <h1 className="text-4xl font-suitBold pr-6 mobile:text-2xl">
         <span>🚀</span>
         <span>기술 스택</span>
       </h1>
-      <ul className="flex  gap-3 items-center font-suitSemiBold">
+      <ul className="flex  gap-3 items-center font-suitSemiBold mobile:flex-wrap">
         {PERSONAL_INFORMATION.teachStack.map((stack, index) => (
           <li
             key={index}

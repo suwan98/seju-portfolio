@@ -27,7 +27,7 @@ function Profile() {
         initial="begin"
         animate="finish"
         variants={motionVariants}
-        className="w-[11rem] h-[11rem] object-cover rounded-full shadow-lg"
+        className="w-[11rem] h-[11rem] object-cover rounded-full shadow-lg mobile:w-[5rem] mobile:h-[5rem]"
         src="/assets/image/profile.jpg"
       />
     </>

@@ -23,11 +23,11 @@ function ProjectTechStackList({techStack}: Props) {
   return (
     <div>
       <ProjectInfoTitle emoji="🪄" descriptionText="프로젝트 기술 스택" />
-      <ul className="flex gap-4 flex-nowrap pl-8">
+      <ul className="flex gap-4 pl-8 mobile:flex-wrap">
         {techStack.map((stack, index) => (
           <li
             key={index}
-            className={`border p-3 ${
+            className={`p-3 ${
               teachStackMappedColors[stack] || `bg-highlight`
             } rounded-lg text-teal-50 cursor-pointer transition-all  hover:scale-105 delay-75 ease-in-out`}>
             {stack}

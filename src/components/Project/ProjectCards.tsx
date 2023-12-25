@@ -20,7 +20,7 @@ function ProjectCards() {
             techStack,
           }) => (
             <ProjectCard key={id}>
-              <div className="col-span-1 flex flex-col items-center">
+              <div className="col-span-1 flex flex-col items-center mobile:justify-center">
                 <ProjectImageSwiper source={projectImageSource} />
                 <TroubleShottingButton title={title} />
               </div>

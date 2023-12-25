@@ -56,7 +56,11 @@ const PROJECT_LIST = [
   {
     id: 4,
     title: "포트폴리오",
-    projectImageSource: [],
+    projectImageSource: [
+      "/assets/image/projectSource/front-portfolio/image1.png",
+      "/assets/image/projectSource/front-portfolio/image2.png",
+      "/assets/image/projectSource/front-portfolio/image3.png",
+    ],
     core: "framer-motion을 통한 다양한 애니메이션 구현. 재사용성이 가능한 컴포넌트 구축 및 설계. Github Action을 통한 CI/CD 파이프라인 구축. AWS EC2 인스턴스 생성 및 프로젝트 배포 경험",
     descrption: "Nextjs를 통해 정적인 포트폴리오 웹사이트를 구현했어요.",
     baseURL: {

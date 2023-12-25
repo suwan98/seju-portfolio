@@ -13,7 +13,9 @@ function ProjectInfoSection({emoji, descriptionText, descriptionItem}: Props) {
         <ProjectInfoTitle emoji={emoji} descriptionText={descriptionText} />
         <ul>
           {descriptionItem.map((text, index) => (
-            <li className="list-disc ml-8" key={index}>
+            <li
+              className="list-disc ml-8 mobile:list-none mobile:ml-0 mobile:pb-4 mobile:text-center"
+              key={index}>
               {text}
             </li>
           ))}

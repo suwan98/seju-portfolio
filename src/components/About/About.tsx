@@ -3,14 +3,14 @@ import SectionTitle from "../common/SectionTitle";
 import FadeAnimationWrapper from "../common/FadeAnimationWrapper";
 import CardWrapper from "../common/CardWrapper";
 import TeachStackList from "./TeachStackList";
-import AboutDescription from './AboutDescription';
+import AboutDescription from "./AboutDescription";
 
 function About() {
   return (
     <>
       <div className="pb-16 flex flex-col items-baseline">
         <SectionTitle title="저를 소개할게요!" />
-        <div className="absolute left-0 bottom-[2%] z-10">
+        <div className="absolute left-0 bottom-[2%] z-10 tablet:w-40 tablet:h-40 mobile:w-40 mobile:h-40">
           <Image
             src="/assets/image/introduceImage.png"
             width="450"

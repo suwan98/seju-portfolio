@@ -1,11 +1,7 @@
 "use client";
 
-import PROJECT_LIST from "@/constants/PROJECT_LIST";
 import {AnimatePresence, wrap, motion} from "framer-motion";
 import {useState} from "react";
-import ContactInfo from "./../Home/ContextInfo";
-import {GrFormPrevious} from "react-icons/gr";
-import {MdNavigateNext} from "react-icons/md";
 import ArrowRight from "./../common/ArrowRight";
 import ArrowLeft from "../common/ArrowLeft";
 
@@ -49,7 +45,7 @@ function ProjectImageSwiper({source}: Props) {
   };
 
   return (
-    <div className="relative shadow-lg min-w-[20rem] max-w-[25rem] h-auto flex justify-center items-center ">
+    <div className="relative shadow-lg min-w-[20rem] max-w-[25rem] h-auto flex justify-center items-center">
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
           className="object-cover w-full"

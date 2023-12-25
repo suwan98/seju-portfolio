@@ -13,7 +13,7 @@ function ProjectInfoURL({url}: Props) {
   return (
     <div>
       <ProjectInfoTitle emoji="🌏" descriptionText="프로젝트 URL" />
-      <ul className="flex flex-col pl-8 gap-3">
+      <ul className="flex flex-col pl-8 gap-3 mobile:items-center mobile:justify-center mobile:pl-0">
         {mapedURL.map(([key, value], index) => (
           <a
             key={index}

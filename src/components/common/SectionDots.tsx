@@ -41,7 +41,7 @@ function SectionDots({refs}: Props) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [refs]);
+  }, [refs, setActiveIndex]);
 
   return (
     <ul className="flex flex-col gap-4 fixed right-0 bottom-1/2 mr-12 cursor-pointer mobile:hidden">
