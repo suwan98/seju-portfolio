@@ -59,19 +59,12 @@
 }
 
 @layer components {
-  .highlight {
-    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=ffff43);
-  }
-
-  /* 말풍선 */
-  .bubble-arrow {
-    @apply absolute w-0 h-0 -left-4 bottom-[2.625rem] 
-    after:content-[""] 
-    after:absolute
-    after:border-t-neutral-100 
-    after:w-[0.9375rem] after:h-[1.875rem] 
-    after:rotate-[145deg] after:rounded-[0_20px_0] 
-    after:border-t-[9px] 
-    after:border-0;
+  .grandientTitle {
+    background: linear-gradient(
+      to top,
+      #faac40 0%,
+      transparent 74%,
+      transparent 100%
+    );
   }
 }

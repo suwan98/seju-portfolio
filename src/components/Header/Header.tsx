@@ -10,8 +10,8 @@ function Header() {
   const activeIndex = useStore((state) => state.activeIndex);
   const setActiveIndex = useStore((state) => state.setActiveIndex);
 
-  const moveToSection = (href: string) => {
-    const willMoveElement = document.getElementById(href);
+  const moveToSection = (elementId: string) => {
+    const willMoveElement = document.getElementById(elementId);
     if (willMoveElement) {
       window.scrollTo({
         top: willMoveElement.offsetTop,

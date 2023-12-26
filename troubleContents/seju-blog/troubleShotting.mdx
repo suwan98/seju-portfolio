@@ -7,7 +7,7 @@ category: seju-blog
 
 ## 문제 1 : 카테고리 중복 생성
 
-### **contentlayer 라이브러리에서 카테고리를 받아와 카테고리별로 렌더링할 계획이였다**
+### contentlayer 라이브러리에서 카테고리를 받아와 카테고리별로 렌더링할 계획이였다
 
 ```tsx
 import {defineDocumentType, makeSource} from "contentlayer/source-files";
@@ -40,11 +40,10 @@ export default contentSource;
 - allPosts에서 category만 배열로 가져와서 렌더링 했다
 
 ```tsx
-**import {allPosts} from "contentlayer/generated";
+import {allPosts} from "contentlayer/generated";
 
-function PostCategories() {**
+function PostCategories() {
   const categories = allPosts.map((post) => post.category);
-  **console.log(categories);
 
   return (
     <>
@@ -62,7 +61,7 @@ function PostCategories() {**
   );
 }
 
-export default PostCategories;**
+export default PostCategories;
 ```
 
 **그런데 문제는??**

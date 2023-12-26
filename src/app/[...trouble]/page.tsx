@@ -17,9 +17,9 @@ function TroubleShotting({params}: Props) {
 
   return (
     <>
-      <section className="min-h-screen my-40 w-[80vh] mx-auto">
+      <section className=" my-40 w-[80vw] mx-auto">
         <SectionTitle title={post?.title!} />
-        <div className="bg-neutral-100 h-screen w-full text-neutral-800 ">
+        <div className="bg-neutral-100 w-full text-neutral-800 ">
           <MDXComponent />
         </div>
       </section>
