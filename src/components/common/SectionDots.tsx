@@ -10,7 +10,8 @@ interface Props {
 
 function SectionDots({refs}: Props) {
   const dots = Array(3).fill(null);
-  const {activeIndex, setActiveIndex} = useStore();
+  const activeIndex = useStore((state) => state.activeIndex);
+  const setActiveIndex = useStore((state) => state.setActiveIndex);
 
   const handleMoveScrollInView = (index: number) => () => {
     scrollToSection(refs[index]);

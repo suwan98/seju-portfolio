@@ -65,7 +65,7 @@ const PROJECT_LIST = [
     descrption: "Nextjs를 통해 정적인 포트폴리오 웹사이트를 구현했어요.",
     baseURL: {
       깃허브: "https://github.com/suwan98/seju-portfolio",
-      배포페이지: "none",
+      배포페이지: "https://seju-portfolio.com/",
     },
     techStack: ["TypeScript", "Nextjs", "Zustand", "AWS"],
     isTeamProject: false,

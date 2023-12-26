@@ -2,10 +2,10 @@
 
 import LINK_MAP from "@/constants/LINK_MAP";
 import useStore from "@/store/SectionActiveStore";
-import Link from "next/link";
 
 function Header() {
-  const {activeIndex, setActiveIndex} = useStore();
+  const activeIndex = useStore((state) => state.activeIndex);
+  const setActiveIndex = useStore((state) => state.setActiveIndex);
 
   const moveToSection = (href: string) => {
     const willMoveElement = document.getElementById(href);
