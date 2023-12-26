@@ -38,7 +38,7 @@ export default function Home() {
         <About />
       </section>
       <section
-        id=""
+        id="project"
         ref={proejectRef}
         className="flex-col flex items-center justify-center min-h-screen relative">
         <Project />
