@@ -4,7 +4,12 @@ interface Props {
   title: string;
 }
 
+import {allPosts} from "contentlayer/generated";
+
 function TroubleShottingButton({title}: Props) {
+  const posts = allPosts.map((post) => post.category);
+  console.log(posts);
+
   return (
     <>
       <Link

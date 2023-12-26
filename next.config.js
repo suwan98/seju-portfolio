@@ -1,15 +1,8 @@
+const {withContentlayer} = require("next-contentlayer");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "via.placeholder.com",
-        port: "",
-        pathname: "/*",
-      },
-    ],
-  },
+  reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+module.exports = withContentlayer(nextConfig);
