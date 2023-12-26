@@ -9,8 +9,9 @@ function TroubleShottingButton({title}: Props) {
     <>
       <Link
         href={`/trouble/${title}`}
-        className="p-4 mt-8 hover:scale-105 delay-75 ease-linear transition-transform rounded-2xl shadow-sm text-center  bg-buttonHighlight text-lg font-suitSemiBold hover:bg-neutral-200">
-        <button className=" text-neutral-700 ">트러블 슈팅 보러가기!</button>
+        className="p-4 mt-8 hover:scale-105 delay-75 ease-linear transition-transform text-center font-jalnan text-xl  hover:text-rose-500">
+        <span>🚨</span>
+        <span>트러블 슈팅 보러가기</span>
       </Link>
     </>
   );

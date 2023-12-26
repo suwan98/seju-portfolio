@@ -3,7 +3,6 @@
 import LINK_MAP from "@/constants/LINK_MAP";
 import useScrollStatus from "@/lib/hooks/useScrollStatus";
 import useStore from "@/store/SectionActiveStore";
-import {useEffect, useState} from "react";
 
 function Header() {
   const activeIndex = useStore((state) => state.activeIndex);
