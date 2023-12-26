@@ -1,7 +1,9 @@
 "use client";
 
 import LINK_MAP from "@/constants/LINK_MAP";
+import useScrollStatus from "@/lib/hooks/useScrollStatus";
 import useStore from "@/store/SectionActiveStore";
+import {useEffect, useState} from "react";
 
 function Header() {
   const activeIndex = useStore((state) => state.activeIndex);
@@ -22,9 +24,17 @@ function Header() {
     moveToSection(href);
   };
 
+  /* 스크롤시 헤더 투명도 조정 */
+  const scrollState = useScrollStatus();
+
   return (
     <>
-      <header className="shadow-md min-w-full p-8 bg-[#212121] text-neutral-200 bg-blend-overlay font-intel fixed z-20">
+      <header
+        className={`shadow-md min-w-full p-8 bg-[#212121] text-neutral-200 bg-blend-overlay font-intel fixed z-20 ${
+          scrollState
+            ? "bg-opacity-70 text-opacity-70 bg-blend-overlay backdrop-blur-xl"
+            : null
+        }`}>
         <div className="flex justify-between w-full">
           <div className="flex items-center gap-x-2">
             <h1>Seju Portfolio</h1>
