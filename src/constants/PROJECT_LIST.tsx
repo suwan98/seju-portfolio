@@ -1,6 +1,7 @@
 const PROJECT_LIST = [
   {
     id: 1,
+    filePath: "seju-blog",
     title: "기술 블로그",
     projectImageSource: [
       "/assets/image/projectSource/next-blog/image1.png",
@@ -19,6 +20,7 @@ const PROJECT_LIST = [
   },
   {
     id: 2,
+    filePath: "t-test",
     title: "너 T야? T력 테스트",
     projectImageSource: [
       "/assets/image/projectSource/t-test/image1.png",
@@ -37,6 +39,7 @@ const PROJECT_LIST = [
   },
   {
     id: 3,
+    filePath: "cafe-jijo",
     title: "JIJO-Cafe",
     projectImageSource: [
       "/assets/image/projectSource/jijo-cafe/image1.png",
@@ -55,6 +58,7 @@ const PROJECT_LIST = [
   },
   {
     id: 4,
+    filePath: "seju-portfolio",
     title: "포트폴리오",
     projectImageSource: [
       "/assets/image/projectSource/front-portfolio/image1.png",

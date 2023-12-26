@@ -2,3 +2,100 @@
 title: Nextjs 개인 블로그 프로젝트 트러블 슈팅
 category: seju-blog
 ---
+
+# 🏊‍♂️ 트러블 슈팅
+
+## 문제 1 : 카테고리 중복 생성
+
+### **contentlayer 라이브러리에서 카테고리를 받아와 카테고리별로 렌더링할 계획이였다**
+
+```tsx
+import {defineDocumentType, makeSource} from "contentlayer/source-files";
+import remarkGfm from "remark-gfm";
+
+export const Post = defineDocumentType(() => ({
+  name: "posts",
+  filePathPattern: `**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {type: "string", required: true},
+    date: {type: "string", required: true},
+    category: {type: "string", required: true},
+  },
+}));
+
+const contentSource = makeSource({
+  contentDirPath: "contents",
+  documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+  },
+});
+
+export default contentSource;
+```
+
+**PostCategories 컴포넌트**
+
+- allPosts에서 category만 배열로 가져와서 렌더링 했다
+
+```tsx
+**import {allPosts} from "contentlayer/generated";
+
+function PostCategories() {**
+  const categories = allPosts.map((post) => post.category);
+  **console.log(categories);
+
+  return (
+    <>
+      <section className="absolute top-0 -left-[20rem] bottom-0 right-0 border w-fit p-8 min-h-[12rem] pb-12 text-center">
+        <h2 className="text-3xl font-bold mb-8">카테고리</h2>
+        <ul className="flex flex-col gap-4">
+          {categories.map((category, index) => (
+            <li className="border p-4 rounded-xl" key={index}>
+              {category}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
+}
+
+export default PostCategories;**
+```
+
+**그런데 문제는??**
+
+- 카테고리는 하나의 폴더만을 정의해야한다
+- 그러나 동일한 카테고리의 문서 생성시 똑같은 카테고리가 다시 생성되는 문제가 발생함
+- 해결방안은??
+
+### 해결방법 : category만 담은 배열을 set객체로 만들자!
+
+- category만 담은 배열을 set객체로 만들자
+- 만든 Set 객체를 전개 연산자로 분해 후 map으로 렌더링한 후 해결!
+
+```tsx
+import {allPosts} from "contentlayer/generated";
+
+function PostCategories() {
+  const categoriesSet = new Set(allPosts.map((post) => post.category));
+  const categories = [...categoriesSet];
+
+  return (
+    <>
+      <section className="absolute top-0 -left-[20rem] bottom-0 right-0 border w-fit p-8 min-h-[12rem] pb-12 text-center">
+        <h2 className="text-3xl font-bold mb-8">카테고리</h2>
+        <ul className="flex flex-col gap-4">
+          {categories.map((category, index) => (
+            <li className="border p-4 rounded-xl" key={index}>
+              {category}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
+}
+```

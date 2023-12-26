@@ -1,15 +1,27 @@
+import SectionScrollTopButton from "@/components/common/SectionScrollTopButton";
 import SectionTitle from "@/components/common/SectionTitle";
+import {allPosts} from "contentlayer/generated";
+import {useMDXComponent} from "next-contentlayer/hooks";
 
 interface Props {
-  params: string;
+  params: {slug: string};
 }
 
 function TroubleShotting({params}: Props) {
+  const category = Object.values(params).flatMap((param) => param);
+  const post = allPosts.find((post) =>
+    category.some((slug) => post._raw.sourceFileDir === slug)
+  );
+
+  const MDXComponent = useMDXComponent(post?.body.code || "");
+
   return (
     <>
-      <section className="h-screen my-12 w-[80vh] mx-auto">
-        <SectionTitle title="트러블 슈팅" />
-        <div className="bg-neutral-100 h-screen w-full"></div>
+      <section className="min-h-screen my-40 w-[80vh] mx-auto">
+        <SectionTitle title={post?.title!} />
+        <div className="bg-neutral-100 h-screen w-full text-neutral-800 ">
+          <MDXComponent />
+        </div>
       </section>
     </>
   );

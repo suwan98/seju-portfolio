@@ -2,3 +2,30 @@
 title: 포트폴리오 프로젝트 트러블 슈팅
 category: seju-portfolio
 ---
+
+## 라우팅
+
+**Nextjs에선 기본적으로 앱라우팅 기반으로 라우팅이 지원된다**
+
+- 이를 통해 진행하려고 했으나 왠걸?
+
+  - 404 에러를 마주쳤다
+  - 처음에 구성하려던 구조는 `/trouble/${title}`로 구성하려했다
+
+  ```tsx
+  function TroubleShottingButton({title}: Props) {
+    return (
+      <>
+        <Link
+          href={`/trouble/${title}`}
+          className="w-full p-4 mt-8 hover:scale-110 delay-75 ease-linear transition-transform rounded-2xl shadow-sm text-center  bg-buttonHighlight text-lg font-suitSemiBold">
+          <button className=" text-neutral-700 ">트러블 슈팅 보러가기!</button>
+        </Link>
+      </>
+    );
+  }
+
+  export default TroubleShottingButton;
+  ```
+
+  Nextjs 공식문서를 찾아보니 `[…slug]`를 통해 모든 세그먼트를 포괄하는 확장세그먼트를 만들 수 있다고 한다!

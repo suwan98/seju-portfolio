@@ -11,6 +11,7 @@ function ProjectCards() {
         {PROJECT_LIST.map(
           ({
             id,
+            filePath,
             title,
             projectImageSource,
             descrption,
@@ -23,7 +24,7 @@ function ProjectCards() {
               <div className="col-span-1 flex flex-col items-center mobile:justify-center flex-1 gap-4">
                 <h1 className="text-3xl pb-8  font-jalnan ">{title}</h1>
                 <ProjectImageSwiper source={projectImageSource} />
-                <TroubleShottingButton title={title} />
+                <TroubleShottingButton filePath={filePath} />
               </div>
               <div className="col-span-1 flex-1">
                 <ProjectDescrption

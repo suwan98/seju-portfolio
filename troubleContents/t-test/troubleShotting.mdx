@@ -2,3 +2,72 @@
 title: T-TEST 프로젝트 트러블 슈팅
 category: t-test
 ---
+
+# 🏊‍♂️ 트러블 슈팅
+
+## 1. ShareButton 공통 컴포넌트 만들기
+
+### 문제점 : shareButtonsName에 따라 카카오,트위터,복사하기 아이콘이 생성되어야하는데 어떻게하면 좋을까?\*\*
+
+```tsx
+import {ReactNode} from "react";
+
+interface IShareButton {
+  children: ReactNode;
+}
+
+function ShareButton({children}: IShareButton) {
+  const shareButtonNames = ["카카오", "트위터", "복사하기"];
+
+  return (
+    <>
+      <button className="inline-flex items-center justify-center border border-transparent focus:outline-none">
+        {children}
+      </button>
+    </>
+  );
+}
+
+export default ShareButton;
+```
+
+### 해결방안 : icons라는 객체를 만들고 iconType에 따라 다르게 렌더링하도록 매핑하자!
+
+```tsx
+import KakaoIcon from "./KakaoIcon";
+import TwitterIcon from "./TwitterIcon";
+import CopyIcon from "./CopyIcon";
+
+interface IShareButton {
+  iconType: "kakao" | "twitter" | "copy";
+}
+
+function ShareButton({iconType}: IShareButton) {
+  const icons = {
+    kakao: <KakaoIcon />,
+    twitter: <TwitterIcon />,
+    copy: <CopyIcon />,
+  };
+
+  return (
+    <>
+      <button className="inline-flex items-center justify-center border border-transparent focus:outline-none">
+        {icons[iconType]}
+      </button>
+    </>
+  );
+}
+
+export default ShareButton;
+```
+
+**아이콘 타입에 따른 배경색 매핑**
+
+```tsx
+/* 아이콘 타입에 따른 배경색 매핑 */
+const shareButtonBackGroundColor = {
+  kakao: "bg-yellow-400 active:bg-yellow-600 hover:bg-yellow-500",
+  twitter: "bg-blue-400 active:bg-blue-600 hover:bg-blue-500",
+  copy: "bg-blue-500 active:bg-blue-700 hover:bg-blue-600",
+};
+```
