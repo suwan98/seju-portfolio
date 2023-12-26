@@ -19,7 +19,7 @@ function About() {
           />
         </div>
         <FadeAnimationWrapper>
-          <CardWrapper className="px-8 flex-col items-stretch">
+          <CardWrapper className="px-8 flex-col items-stretch min-h-[45rem]">
             <TeachStackList />
             <AboutDescription />
           </CardWrapper>

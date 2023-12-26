@@ -18,6 +18,7 @@ const config: Config = {
         suitBold: ["suitBold"],
         suitSemiBold: ["suitSemiBold"],
         intel: ["intel"],
+        jalnan: ["Jalnan"],
       },
       colors: {
         highlight: "#faac40",
