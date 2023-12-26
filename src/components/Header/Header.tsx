@@ -3,6 +3,8 @@
 import LINK_MAP from "@/constants/LINK_MAP";
 import useScrollStatus from "@/lib/hooks/useScrollStatus";
 import useStore from "@/store/SectionActiveStore";
+import Link from "next/link";
+import {useRouter} from "next/router";
 
 function Header() {
   const activeIndex = useStore((state) => state.activeIndex);
@@ -35,9 +37,9 @@ function Header() {
             : null
         }`}>
         <div className="flex justify-between w-full">
-          <div className="flex items-center gap-x-2">
+          <Link className="flex items-center gap-x-2" href="/">
             <h1>Seju Portfolio</h1>
-          </div>
+          </Link>
 
           <nav className="flex gap-6">
             {LINK_MAP.map(({href, title}, index) => (
