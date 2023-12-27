@@ -6,9 +6,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [18]
     steps:
       - name: Checkout source code .
         uses: actions/checkout@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Use Node.js ${{ matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version}}
+          cache: "pnpm"
       - name: Check Node v
         run: node -v
       - name: Install Dependices
