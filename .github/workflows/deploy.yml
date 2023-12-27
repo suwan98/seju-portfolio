@@ -41,7 +41,7 @@ jobs:
           aws s3 cp --region ap-northeast-2 ./build.zip s3://seju-bucket/build.zip
       - name: Depoly
         run: aws deploy create-deployment
-          --appliction-name seju-codeDeploy
+          --application-name seju-codeDeploy
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name seju-codeDeploy-group
           --s3-location bucket=seju-bucket,bundleType=zip,key=build.zip
