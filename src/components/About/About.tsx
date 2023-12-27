@@ -10,7 +10,7 @@ function About() {
     <>
       <div className="pb-16 flex flex-col items-baseline">
         <SectionTitle title="저를 소개할게요!" />
-        <div className="absolute left-0 bottom-[2%] z-10 tablet:w-40 tablet:h-40 mobile:w-40 mobile:h-40">
+        <div className="absolute left-0 bottom-[2%] z-10 tablet:w-90 tablet:h-90 mobile:w-40 mobile:h-40">
           <Image
             src="/assets/image/introduceImage.png"
             width="450"

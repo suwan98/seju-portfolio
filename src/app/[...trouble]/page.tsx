@@ -13,15 +13,15 @@ function TroubleShotting({params}: Props) {
     category.some((slug) => post._raw.sourceFileDir === slug)
   );
 
-  const MDXComponent = useMDXComponent(post?.body.code || "");
+  const MDXComponent = useMDXComponent(post?.body.code!);
 
   return (
     <>
-      <section className=" my-40 w-[80vw] mx-auto">
+      <section className="my-40 w-full text-[#B5B5B5] flex flex-col items-center">
         <SectionTitle title={post?.title!} />
-        <div className="bg-neutral-100 w-full text-neutral-800 ">
+        <article className=" py-12 mx-12 prose prose-invert prose-pre:p-6 prose-h1:text-center prose-h1:py-4 prose-h3:py-4  prose-code:after:hidden prose-code:before:hidden prose-code:text-md">
           <MDXComponent />
-        </div>
+        </article>
       </section>
     </>
   );

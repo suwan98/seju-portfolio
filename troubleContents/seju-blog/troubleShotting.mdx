@@ -81,7 +81,6 @@ import {allPosts} from "contentlayer/generated";
 function PostCategories() {
   const categoriesSet = new Set(allPosts.map((post) => post.category));
   const categories = [...categoriesSet];
-
   return (
     <>
       <section className="absolute top-0 -left-[20rem] bottom-0 right-0 border w-fit p-8 min-h-[12rem] pb-12 text-center">

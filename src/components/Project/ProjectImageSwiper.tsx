@@ -18,7 +18,7 @@ function ProjectImageSwiper({source}: Props) {
   const swiperVariants = {
     enter: (direction: number) => {
       return {
-        x: direction > 0 ? 1000 : -1000,
+        x: direction > 0 ? 300 : -300,
         opacity: 0,
       };
     },
@@ -30,7 +30,7 @@ function ProjectImageSwiper({source}: Props) {
     exit: (direction: number) => {
       return {
         zIndex: 0,
-        x: direction < 0 ? 1000 : -1000,
+        x: direction < 0 ? 300 : -300,
         opacity: 0,
       };
     },

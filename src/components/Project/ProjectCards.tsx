@@ -21,7 +21,7 @@ function ProjectCards() {
             techStack,
           }) => (
             <ProjectCard key={id}>
-              <div className="col-span-1 flex flex-col items-center mobile:justify-center flex-1 gap-4">
+              <div className="col-span-1 flex flex-col items-center mobile:justify-center flex-1">
                 <h1 className="text-3xl mb-8 font-jalnan grandientTitle">
                   {title}
                 </h1>

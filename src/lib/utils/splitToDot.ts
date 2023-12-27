@@ -1,13 +1,6 @@
 const splitToDot = (text: string) => {
-  let sentences = text.split(". ");
-  sentences = sentences.map((sentence) => sentence + ".");
-
-  sentences[sentences.length - 1] = sentences[sentences.length - 1].slice(
-    0,
-    -1
-  );
-
-  return sentences;
+  const sentences = text.split(". ");
+  return sentences.map((sentence) => sentence);
 };
 
 export default splitToDot;
