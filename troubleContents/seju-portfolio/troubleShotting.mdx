@@ -3,7 +3,7 @@ title: 포트폴리오 프로젝트 트러블 슈팅
 category: seju-portfolio
 ---
 
-## 라우팅
+## 1. 라우팅 이슈
 
 **Nextjs에선 기본적으로 앱라우팅 기반으로 라우팅이 지원된다**
 
@@ -28,4 +28,156 @@ category: seju-portfolio
   export default TroubleShottingButton;
   ```
 
-  Nextjs 공식문서를 찾아보니 `[…slug]`를 통해 모든 세그먼트를 포괄하는 확장세그먼트를 만들 수 있다고 한다!
+- Nextjs 공식문서를 찾아보니 `[…slug]`를 통해 모든 세그먼트를 포괄하는 확장세그먼트를 만들 수 있다고 한다!
+
+<br />
+<br />
+
+## 2. AWS EC2 프론트 배포 중 e2-micro 메모리 부족 이슈
+
+**여차저차해서 기본적인 레이아웃은 전부 만들어뒀고 이제 배포만하면 되는 상태이다**
+
+- AWS EC2 인스턴스를 생성하고, Route53에서 도매인도 구매 후 연결을 완료한 상태였다
+- 이를 통해 터미널에서 인스턴스 접속 후 내 프로젝트를 클론해 온 후 빌드하려고 했으나 **문제가 발생했다**
+
+### 문제발생 내용은?
+
+- 빌드 시 아무리 빌드를 기다려도 빌드가 되지않는 문제발생했다.
+- 구글링을 통해 확인해본결과 인스턴스 생성시 `t2.micro` 인스턴스는 메모리 용량이 `1GB` 밖에 안된다는 것이다
+  - 이로 인해 아무리 기다려도 메모리가 부족하여 빌드되지 않았던것..
+
+### 해결방법은?
+
+**스왑파일을 생성해 `t2-micro`의 메모리 공간을 할당받는 것**
+
+- 스왑파일을 통해 디스크의 영역 일부를 가상메모리로 전환하는 작업을 진행하는 것이다.
+- 자세한 내용은 [여기](https://repost.aws/ko/knowledge-center/ec2-memory-swap-file)에 담겨있다.
+
+**스왑파일 생성하기**
+
+```bash
+ubuntu@ip-172-31-3-121:~$ sudo chmod 600 /swapfile
+```
+
+**스왑파일 읽기 쓰기 권한 업데이트**
+
+```bash
+sudo chmod 600 /swapfile
+```
+
+**Linux 스왑 영역을 설정**
+
+```bash
+$ sudo mkswap /swapfile
+```
+
+**스왑 공간에 스왑 파일을 추가하여 스왑 파일을 즉시 사용할 수 있도록 설정**
+
+```bash
+$ sudo swapon /swapfile
+```
+
+**프로시저가 성공적인지 확인**
+
+```bash
+sudo swapon -s
+```
+
+**터미널에서 코드 아래 코드 실행 후 종료**
+
+```bash
+echo "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab
+/swapfile swap swap defaults 0 0
+```
+
+![build-completed](/assets/troublePosts/seju-portfolio/image1.png)_다시 돌아가 빌드 시 정상적으로 빌드 되는것을 확인할 수 있게되었다!_
+
+**build 후 start**
+
+- 이후 내가 구매한 `도메인:8080` 을 확인하면?
+- 성공적으로 프로젝트가 열려있을것이다
+
+![build-completed](/assets/troublePosts/seju-portfolio/image2.png)
+
+<br />
+<br />
+
+## 3. Github Actions를 통한 배포자동화 시스템 구축 중 발생한 문제
+
+먼저, CI/CD 배포 자동화를 위해 Github Actions를 통해 깃허브로 푸쉬가 감지되면 -> 압축된 빌드파일이 생성한 AWS S3 버켓에 담기고 -> 해당 버켓을 통해 EC2 인스턴스 내에 `deploy`폴더가 생성되는 로직을 구성하였다.
+
+- `deploy.yml` 파일을 다 작성하고 푸쉬했더니 Github Actions에서 종속성 설치를 위해 `run` 내부에 `pnpm install`을 넣어놨더니 해당 부분에서 계속 오류가 발생 해 `Actions`가 에러가 나고있었다
+- 한참을 해매고 관련 이슈에 관한 내용을 찾아가던 중 GitHub Actions 단계는 내 로컬환경이나 EC2 우분투 환경이 아닌 GitHub 자체에서 제공 되는 우분투 가상환경이라는 것이다.
+  - 따라서 깃허브 환경에서 `pnpm install`을 수행하려 보니 되지 않았던 문제였다
+
+### 🥲 그러면 Actions 과정에서 pnpm을 사용할 수 없는걸까??
+
+**이 내용또한 한참을 찾아보니 역시 답은 공식문서에 있었다**
+
+- `pnpm`의 [공식문서](https://pnpm.io/continuous-integration#github-actions)에 따르면 종속성을 설치하고 캐싱하는데 `pnpm`을 사용할 수 있다고 한다.
+- 이를 참고해 내가 기존에 작성해 두었던 `deploy.yml`파일을 수정했다
+
+```yml
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [18]
+    steps:
+      - name: Checkout source code .
+        uses: actions/checkout@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Use Node.js ${{ matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version}}
+          cache: "pnpm"
+      - name: Check Node v
+        run: node -v
+      - name: Install Dependices
+        run: pnpm install
+      - name: Build
+        run: pnpm build
+      - name: zip create
+        run: zip -qq -r ./build.zip .
+        shell: bash
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY}}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Upload to S3
+        run: |
+          aws s3 cp --region ap-northeast-2 ./build.zip s3://seju-bucket/build.zip
+      - name: Depoly
+        run: aws deploy create-deployment
+          --appliction-name seju-codeDeploy
+          --deployment-config-name CodeDeployDefault.AllAtOnce
+          --deployment-group-name seju-codeDeploy-group
+          --s3-location bucket=seju-bucket,bundleType=zip,key=build.zip
+```
+
+![액션 성공](/assets/troublePosts/seju-portfolio/image3.png)_위와 같이 성공적으로 Actions를 수행했다!_
+
+<br />
+<br />
+
+## 4. Actions Deploy 후 최신화가 되지 않는 문제
+
+**위와 같이 `Actions`는 정상적으로 수행되고 버킷에도 `build.zip`이 정상적으로 생성되었다**
+
+### 그런데 문제는?
+
+- EC2 인스턴스 터미널 환경에서 기존 실행되고 있던 `PM2`를 종료하고 새롭게 만들어진 `deploy` 폴더 내부에서 `pm2 start`를 아무리 다시 실행해도, 최신화 되지 않은 커밋 전의 웹애플리케이션이 나타나고 있는것
+- 이 또한 한참을 확인해보니 `PM2`자체가 기본적으로 애플리케이션을 데몬형태로 실행시키기 때문에 이전에 실행했던 프로세스를 명시적으로 중지시키고 삭제하면 계속 이전 `PM2` 프로세스가 생성된다는것을 확인하였다.
+- 따라서 기존 `PM2` 프로세스를 중지 및 삭제 시키고 다시 `deploy` 폴더로 가 빌드 후 `PM2` 프로세스를 연결시키니 최신화 된 애플리케이션 사이트가 정상적으로 구동될 수 있었다.
