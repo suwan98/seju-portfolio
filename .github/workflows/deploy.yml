@@ -12,7 +12,7 @@ jobs:
       - name: Check Node v
         run: node -v
       - name: Install Dependices
-        run: yarn i
+        run: yarn install
       - name: Build
         run: yarn build
       - name: zip create
