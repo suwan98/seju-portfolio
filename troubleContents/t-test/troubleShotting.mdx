@@ -5,9 +5,7 @@ category: t-test
 
 # 🏊‍♂️ 트러블 슈팅
 
-## 1. ShareButton 공통 컴포넌트 만들기
-
-### 문제점 : shareButtonsName에 따라 카카오,트위터,복사하기 아이콘이 생성되어야하는데 어떻게하면 좋을까?\*\*
+## 1. ShareButton 공통 컴포넌트 구성 중 shareButtonsName에 따라 카카오,트위터,복사하기 아이콘이 생성되어야하는데 어떻게하면 좋을까?
 
 ```tsx
 import {ReactNode} from "react";
@@ -31,7 +29,7 @@ function ShareButton({children}: IShareButton) {
 export default ShareButton;
 ```
 
-### 해결방안 : icons라는 객체를 만들고 iconType에 따라 다르게 렌더링하도록 매핑하자!
+### 해결방안은? icons라는 객체를 만들고 iconType에 따라 다르게 렌더링하도록 매핑하자
 
 ```tsx
 import KakaoIcon from "./KakaoIcon";
@@ -61,7 +59,7 @@ function ShareButton({iconType}: IShareButton) {
 export default ShareButton;
 ```
 
-**아이콘 타입에 따른 배경색 매핑**
+**아이콘 타입에 따른 배경색 매핑도 추가적으로 구성하였다.**
 
 ```tsx
 /* 아이콘 타입에 따른 배경색 매핑 */
