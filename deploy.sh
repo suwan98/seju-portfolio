@@ -1,7 +1,5 @@
-REPOSITORY=/home/ubuntu/deploy
 
-cd $REPOSITORY 
 
-sudo pnpm install
+sudo pnpm install -C /home/ubuntu/deploy
 
 sudo pm2 reload all

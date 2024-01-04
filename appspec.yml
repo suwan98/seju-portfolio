@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /
+  - source: /source_code
     destination: /home/ubuntu/deploy
     overwrite: yes
 file_exists_behavior: OVERWRITE
