@@ -30,7 +30,8 @@ jobs:
       - name: zip create
         run: |
           mkdir source_code
-          mv * source_code/
+          shopt -s extglob
+          mv !(source_code) source_code/
           zip -qq -r ./build.zip source_code/
         shell: bash
       - name: Configure AWS credentials
