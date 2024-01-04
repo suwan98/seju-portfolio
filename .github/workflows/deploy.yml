@@ -28,11 +28,7 @@ jobs:
       - name: Build
         run: pnpm build
       - name: zip create
-        run: |
-          mkdir source_code
-          shopt -s extglob
-          mv !(source_code) source_code/
-          zip -qq -r ./build.zip source_code/
+        run: zip -qq -r ./build.zip .
         shell: bash
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
