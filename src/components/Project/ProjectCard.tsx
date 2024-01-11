@@ -9,7 +9,7 @@ function ProjectCard({children}: Props) {
   return (
     <>
       <FadeAnimationWrapper>
-        <CardWrapper className="px-8 gap-16 tablet:flex-col mobile:flex-col">
+        <CardWrapper className="px-8 gap-16 tablet:flex-col mobile:flex-col flex-col">
           {children}
         </CardWrapper>
       </FadeAnimationWrapper>

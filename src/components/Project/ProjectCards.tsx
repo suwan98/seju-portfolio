@@ -7,7 +7,7 @@ import TroubleShottingButton from "./TroubleShottingButton";
 function ProjectCards() {
   return (
     <>
-      <ul className="grid-cols-1 grid gap-y-12 ">
+      <ul className="grid-cols-1 grid gap-y-12">
         {PROJECT_LIST.map(
           ({
             id,

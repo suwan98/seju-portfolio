@@ -14,7 +14,7 @@ function CardWrapper({
     <>
       <div
         className={`
-      border relative rounded-2xl bg-neutral-100 min-w-[60vw] max-w-[80vw] h-auto max-h-full flex flex-col items-center py-12 text-neutral-800 ${justify} ${className} 
+      border relative rounded-2xl bg-neutral-100 min-w-[60vw] max-w-[70vw] h-auto max-h-full flex items-center py-12 text-neutral-800 ${justify} ${className} 
       mobile:px-16`}
         {...props}>
         {children}
