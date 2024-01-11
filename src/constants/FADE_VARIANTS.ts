@@ -2,7 +2,7 @@ import {Variants, easeInOut} from "framer-motion";
 
 const FADE_VARIANTS: Variants = {
   initial: {
-    opacity: 0,
+    opacity: 1,
   },
   inView: {
     opacity: 1,
@@ -13,7 +13,7 @@ const FADE_VARIANTS: Variants = {
     },
   },
   exit: {
-    opacity: 0,
+    opacity: 0.3,
     transition: {
       duration: 0.5,
       ease: easeInOut,

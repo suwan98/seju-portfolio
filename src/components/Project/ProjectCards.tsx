@@ -19,6 +19,10 @@ function ProjectCards() {
             isTeamProject,
             baseURL,
             techStack,
+            problem,
+            problemImageSource,
+            solution,
+            solutionImageSource,
           }) => (
             <ProjectCard key={id}>
               <div className="col-span-1 flex flex-col items-center mobile:justify-center flex-1">
@@ -26,7 +30,6 @@ function ProjectCards() {
                   {title}
                 </h1>
                 <ProjectImageSwiper source={projectImageSource} />
-                <TroubleShottingButton filePath={filePath} />
               </div>
               <div className="col-span-1 flex-1">
                 <ProjectDescrption
@@ -35,8 +38,13 @@ function ProjectCards() {
                   techStack={techStack}
                   isTeamProject={isTeamProject}
                   baseURL={baseURL}
+                  problem={problem}
+                  solution={solution}
+                  problemImageSource={problemImageSource}
+                  solutionImageSource={solutionImageSource}
                 />
               </div>
+              <TroubleShottingButton filePath={filePath} title={title} />
             </ProjectCard>
           )
         )}

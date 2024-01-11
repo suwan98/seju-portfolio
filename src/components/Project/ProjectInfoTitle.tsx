@@ -1,6 +1,6 @@
 interface Props {
   emoji?: string;
-  descriptionText: string;
+  descriptionText?: string;
 }
 
 function ProjectInfoTitle({emoji, descriptionText}: Props) {

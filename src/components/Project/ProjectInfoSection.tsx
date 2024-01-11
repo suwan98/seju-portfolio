@@ -7,6 +7,11 @@ interface Props {
 }
 
 function ProjectInfoSection({emoji, descriptionText, descriptionItem}: Props) {
+  /* 특정 문자열로 시작하는지 검사하는 함수 */
+  const startsWithSpecificString = (str: string, regExp: RegExp) => {
+    return regExp.test(str);
+  };
+
   return (
     <>
       <div>
@@ -14,7 +19,11 @@ function ProjectInfoSection({emoji, descriptionText, descriptionItem}: Props) {
         <ul>
           {descriptionItem.map((text, index) => (
             <li
-              className="list-disc ml-8 mobile:list-none mobile:ml-0 mobile:pb-4 mobile:text-center"
+              className={
+                startsWithSpecificString(text, /^➡️/)
+                  ? "list-none ml-8 pt-2"
+                  : "list-disc ml-8 pt-3 pb-1"
+              }
               key={index}>
               {text}
             </li>
