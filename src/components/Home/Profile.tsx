@@ -1,6 +1,7 @@
 "use client";
 
 import {Variants, easeInOut, motion} from "framer-motion";
+import Image from "next/image";
 
 function Profile() {
   const motionVariants: Variants = {
@@ -23,10 +24,10 @@ function Profile() {
 
   return (
     <>
-      <motion.img
-        initial="begin"
-        animate="finish"
-        variants={motionVariants}
+      <Image
+        alt="profile-image"
+        width="176"
+        height="176"
         className="w-[11rem] h-[11rem] object-cover rounded-full shadow-lg mobile:w-[5rem] mobile:h-[5rem]"
         src="/assets/image/profile.jpg"
       />
